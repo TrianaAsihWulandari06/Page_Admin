@@ -1,0 +1,23 @@
+<% layout('layout') %>
+
+<h2>Daftar Produk</h2>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nama Produk</th>
+      <th>Harga</th>
+      <th>Deskripsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% products.forEach(p => { %>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= p.nama %></td>
+        <td>Rp <%= p.harga %></td>
+        <td><%= p.deskripsi %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

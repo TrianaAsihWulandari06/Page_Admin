@@ -1,0 +1,36 @@
+<% layout('layout') %>
+
+<h2>Daftar Pembelian</h2>
+<table border="1" cellpadding="8">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Produk</th>
+      <th>Jumlah</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% purchases.forEach(p => { %>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= p.nama %></td>
+        <td><%= p.jumlah %></td>
+        <td>Rp <%= p.total %></td>
+        <td><%= p.status %></td>
+        <td>
+          <% if (p.status !== 'dibatalkan') { %>
+            <a href="/admin/purchases/cancel/<%= p.id %>" onclick="return confirm('Batalkan pembelian ini?')">Batalkan</a>
+          <% } else { %>
+            <em>-</em>
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<br>
+<a href="/admin/products">Tambah Pembelian</a>

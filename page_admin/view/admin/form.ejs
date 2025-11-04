@@ -1,0 +1,17 @@
+<% layout('layout') %>
+
+<h2>Input Pembelian Baru</h2>
+
+<form action="/admin/purchases" method="POST">
+  <label for="produk_id">Pilih Produk:</label>
+  <select name="produk_id" id="produk_id" required>
+    <% products.forEach(p => { %>
+      <option value="<%= p.id %>"><%= p.nama %> - Rp <%= p.harga %></option>
+    <% }) %>
+  </select>
+  <br><br>
+  <label for="jumlah">Jumlah:</label>
+  <input type="number" name="jumlah" id="jumlah" min="1" required>
+  <br><br>
+  <button type="submit">Simpan</button>
+</form>
